@@ -6,7 +6,7 @@
         <AppType>Application</AppType>
         <MainSource>TestAppCpp.cpp</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
     </PropertyGroup>
@@ -45,12 +45,6 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
-        <Cfg_2_Win64>true</Cfg_2_Win64>
-        <CfgParent>Cfg_2</CfgParent>
-        <Cfg_2>true</Cfg_2>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <DynamicRTL>true</DynamicRTL>
@@ -70,8 +64,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>CppCallDelphi\TestAppCpp\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>CppCallDelphi\TestAppCpp\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>Models\;CppCallDelphi\TestAppCpp\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>Models\;CppCallDelphi\TestAppCpp\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>TestAppCpp</SanitizedProjectName>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <BCC_EnableBatchCompilation>true</BCC_EnableBatchCompilation>
@@ -86,15 +80,12 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <BCC_PCHName_Clang>StdAfx.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <PackageImports>adortl;appanalytics;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CustomIPTransport;cxDataRS25;cxEditorsRS25;cxExportRS25;cxGridRS25;cxLibraryRS25;cxPageControlRS25;cxPivotGridChartRS25;cxPivotGridOLAPRS25;cxPivotGridRS25;cxSchedulerGridRS25;cxSchedulerRibbonStyleEventEditorRS25;cxSchedulerRS25;cxSchedulerTreeBrowserRS25;cxTreeListdxBarPopupMenuRS25;cxTreeListRS25;cxVerticalGridRS25;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;dxADOServerModeRS25;dxBarDBNavRS25;dxBarExtDBItemsRS25;dxBarExtItemsRS25;dxBarRS25;dxComnRS25;dxCoreRS25;dxdborRS25;dxdbtrRS25;dxDBXServerModeRS25;dxDockingRS25;dxFireDACServerModeRS25;dxFlowChartRS25;dxGaugeControlRS25;dxGDIPlusRS25;dxHttpIndyRequestRS25;dxLayoutControlRS25;dxMapControlRS25;dxmdsRS25;dxNavBarRS25;dxOfficeCoreRS25;dxorgcRS25;dxPDFViewerRS25;dxPSCoreRS25;dxPScxCommonRS25;dxPScxExtCommonRS25;dxPScxGridLnkRS25;dxPScxPCProdRS25;dxPScxPivotGridLnkRS25;dxPScxSchedulerLnkRS25;dxPScxTLLnkRS25;dxPScxVGridLnkRS25;dxPSDBTeeChartRS25;dxPSdxDBOCLnkRS25;dxPSdxDBTVLnkRS25;dxPSdxFCLnkRS25;dxPSdxGaugeControlLnkRS25;dxPSdxLCLnkRS25;dxPSdxMapControlLnkRS25;dxPSdxOCLnkRS25;dxPSdxPDFViewerLnkRS25;dxPSdxSpreadSheetLnkRS25;dxPSLnksRS25;dxPsPrVwAdvRS25;dxPSPrVwRibbonRS25;dxPSRichEditControlLnkRS25;dxPSTeeChartRS25;dxRibbonCustomizationFormRS25;dxRibbonRS25;dxRichEditControlRS25;dxServerModeRS25;dxSkinBlackRS25;dxSkinBlueprintRS25;dxSkinBlueRS25;dxSkinCaramelRS25;dxSkinCoffeeRS25;dxSkinDarkRoomRS25;dxSkinDarkSideRS25;dxSkinDevExpressDarkStyleRS25;dxSkinDevExpressStyleRS25;dxSkinFoggyRS25;dxSkinGlassOceansRS25;dxSkinHighContrastRS25;dxSkiniMaginaryRS25;dxSkinLilianRS25;dxSkinLiquidSkyRS25;dxSkinLondonLiquidSkyRS25;dxSkinMcSkinRS25;dxSkinMetropolisDarkRS25;dxSkinMetropolisRS25;dxSkinMoneyTwinsRS25;dxSkinOffice2007BlackRS25;dxSkinOffice2007BlueRS25;dxSkinOffice2007GreenRS25;dxSkinOffice2007PinkRS25;dxSkinOffice2007SilverRS25;dxSkinOffice2010BlackRS25;dxSkinOffice2010BlueRS25;dxSkinOffice2010SilverRS25;dxSkinOffice2013DarkGrayRS25;dxSkinOffice2013LightGrayRS25;dxSkinOffice2013WhiteRS25;dxSkinOffice2016ColorfulRS25;dxSkinOffice2016DarkRS25;dxSkinPumpkinRS25;dxSkinsCoreRS25;dxSkinscxPCPainterRS25;dxSkinscxSchedulerPainterRS25;dxSkinsdxBarPainterRS25;dxSkinsdxDLPainterRS25;dxSkinsdxNavBarPainterRS25;dxSkinsdxRibbonPainterRS25;dxSkinSevenClassicRS25;dxSkinSevenRS25;dxSkinSharpPlusRS25;dxSkinSharpRS25;dxSkinSilverRS25;dxSkinSpringTimeRS25;dxSkinStardustRS25;dxSkinSummer2008RS25;dxSkinTheAsphaltWorldRS25;dxSkinValentineRS25;dxSkinVisualStudio2013BlueRS25;dxSkinVisualStudio2013DarkRS25;dxSkinVisualStudio2013LightRS25;dxSkinVS2010RS25;dxSkinWhiteprintRS25;dxSkinXmas2008BlueRS25;dxSpellCheckerRS25;dxSpreadSheetConditionalFormattingDialogsRS25;dxSpreadSheetReportDesignerRS25;dxSpreadSheetRS25;dxTabbedMDIRS25;dxThemeRS25;dxTileControlRS25;dxtrmdRS25;dxWizardControlRS25;EssentialsCR;FireDACADSDriver;FireDACCommonODBC;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inetdb;inetdbxpress;Intraweb;rtl;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
-        <BCC_PCHName_Clang>StdAfx.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
@@ -132,14 +123,16 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
-        <BCC_PCHName_Clang>StdAfx.h</BCC_PCHName_Clang>
-    </PropertyGroup>
-    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
-        <BCC_PCHName_Clang>StdAfx.h</BCC_PCHName_Clang>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
     </PropertyGroup>
     <ItemGroup>
         <None Include="ItfCppOrdine.h">
             <BuildOrder>3</BuildOrder>
+        </None>
+        <None Include="ItfCppRiga.h">
+            <BuildOrder>6</BuildOrder>
         </None>
         <PCHCompile Include="StdAfx.h">
             <BuildOrder>1</BuildOrder>
@@ -187,18 +180,18 @@
                 </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName=".\Win32\Debug\TestAppCpp.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="bin\TestAppCpp.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>TestAppCpp.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c250.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c250mt.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c250mt.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c250.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -228,7 +221,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\TestAppCpp.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName="bin\TestAppCpp.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
                         <RemoteName>TestAppCpp.tds</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -239,12 +232,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64250mt.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64250.dll" Class="DependencyModule">
                     <Platform Name="Win64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin64\cc64250.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin64\cc64250mt.dll" Class="DependencyModule">
                     <Platform Name="Win64">
                         <Overwrite>true</Overwrite>
                     </Platform>

@@ -34,7 +34,7 @@ object FormMain: TFormMain
       TabOrder = 0
       OnClick = BtCaricaDllClick
     end
-    object Button1: TButton
+    object BtChiamaItf: TButton
       AlignWithMargins = True
       Left = 114
       Top = 3
@@ -43,7 +43,7 @@ object FormMain: TFormMain
       Align = alLeft
       Caption = 'Carica righe'
       TabOrder = 1
-      ExplicitLeft = 136
+      OnClick = BtChiamaItfClick
     end
   end
   object MmInfo: TMemo
@@ -56,9 +56,5 @@ object FormMain: TFormMain
     Lines.Strings = (
       'MmInfo')
     TabOrder = 1
-    ExplicitLeft = 232
-    ExplicitTop = 128
-    ExplicitWidth = 185
-    ExplicitHeight = 89
   end
 end

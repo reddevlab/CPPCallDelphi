@@ -4,10 +4,12 @@
  @Author: Roberto Carrer
  @Date: 28/04/2019
  ---------------------------------------------------------------- */
+
 struct ICppRiga : IUnknown
 {
-    virtual UnicodeString __stdcall GetCodice() = 0;
-    virtual UnicodeString __stdcall GetDescrizione() = 0;
+    virtual wchar_t* __stdcall GetCodice() = 0;
+    virtual wchar_t* __stdcall GetDescrizione() = 0;
+    virtual int __stdcall GetQta() = 0;
 };
 
 /* ---------------------------------------------------------------

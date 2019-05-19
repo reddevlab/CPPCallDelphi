@@ -3,3 +3,4 @@ Win32/
 *.skincfg
 bin/
 TestDllPas/TestDllPas.identcache
+*.stat
