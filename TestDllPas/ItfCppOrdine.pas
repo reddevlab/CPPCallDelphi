@@ -13,6 +13,7 @@ type
     ICppRiga = interface
         function GetCodice(): PWideChar; stdcall;
         function GetDescrizione(): PWideChar; stdcall;
+        function GetQta(): Integer; stdcall;
     end;
 
 

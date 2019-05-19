@@ -28,13 +28,10 @@ begin
     g_TImplCppOrdine := nil;
 end;
 
-
 finalization
 
 begin
-
     g_TImplCppOrdine.Free;
 end;
 
 end.
-

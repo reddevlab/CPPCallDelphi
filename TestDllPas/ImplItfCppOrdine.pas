@@ -25,16 +25,20 @@ type
     public
         function GetCodice: PWideChar; stdcall;
         function GetDescrizione: PWideChar; stdcall;
+        function GetQta(): Integer; stdcall;
     protected
         // Property per i test
         m_cod: AnsiString;
         m_des: AnsiString;
+        m_qta: Integer;
 
         m_refCount: Integer;
         constructor Create(const codice: AnsiString; const descrizione: AnsiString);
+        function generaQta(): Integer;
         function QueryInterface(const IID: TGUID; out Obj): HRESULT; stdcall;
         function _AddRef: Integer; stdcall;
         function _Release: Integer; stdcall;
+
     end;
 
 
@@ -45,17 +49,16 @@ type
       @Date: 28/04/2019
       ----------------------------------------------------------------* }
 
-
     TImplCppOrdine = class(TObject, ICppOrdine)
     public
-
         m_cppRiga: TImplCppRiga;
 
-        constructor Create();
-        destructor Destroy(); override;
         function GetNumeroOrdine: Integer; stdcall;
         function GetRiga(const index: Integer): { ICppRiga } Pointer; stdcall;
         function ContaRighe(): Integer; stdcall;
+
+        constructor Create();
+        destructor Destroy(); override;
     protected
         // Property private di mockup per i test
         m_numeroOrdine: Integer;
@@ -63,9 +66,11 @@ type
 
         m_refCount: Integer;
         procedure creaDatiMockup();
+
         function QueryInterface(const IID: TGUID; out Obj): HRESULT; stdcall;
         function _AddRef: Integer; stdcall;
         function _Release: Integer; stdcall;
+
     end;
 
 implementation
@@ -121,15 +126,14 @@ end;
 
 function TImplCppOrdine.GetRiga(const index: Integer): { ICppRiga } Pointer;
 var
-    kk: Integer;
+    rg: TImplCppRiga;
 begin
-    if index > m_lstRighe.Count then
-        result := nil
-    else
+    result := nil;
+    if index <= m_lstRighe.Count then
     begin
-        // scorro alla ricerca della riga richiesta
-        for kk := 0 to index do
-            result := m_cppRiga;
+        // ritorno la struttura cercata
+        rg := m_lstRighe.Items[index];
+        result := Pointer(ICppRiga(rg));
     end;
 end;
 
@@ -163,6 +167,14 @@ constructor TImplCppRiga.Create(const codice, descrizione: AnsiString);
 begin
     m_cod := codice;
     m_des := descrizione;
+    m_qta := generaQta();
+end;
+
+function TImplCppRiga.generaQta: Integer;
+begin
+    result := Random(5);
+    if result = 0 then
+        result := 1;
 end;
 
 function TImplCppRiga.GetCodice: PWideChar;
@@ -179,6 +191,11 @@ var
 begin
     StringToWideChar(string(m_des), buff, sizeof(buff));
     result := buff;
+end;
+
+function TImplCppRiga.GetQta: Integer;
+begin
+    result := m_qta;
 end;
 
 function TImplCppRiga.QueryInterface(const IID: TGUID; out Obj): HRESULT;
